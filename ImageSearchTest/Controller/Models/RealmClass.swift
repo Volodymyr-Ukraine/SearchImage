@@ -9,8 +9,15 @@ import Foundation
 import RealmSwift
 
 class RealmClass: Object {
+    
+    // MARK: -
+    // MARK: Properties
+    
     @objc dynamic var text: String = ""
     @objc dynamic var file: Data? = nil
+    
+    // MARK: -
+    // MARK: Methods
     
     public func prepare(search request: String, rawImage raw: Data?) {
         self.text = request

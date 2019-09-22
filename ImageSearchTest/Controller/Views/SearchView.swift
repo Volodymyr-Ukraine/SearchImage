@@ -30,7 +30,7 @@ class SearchView: UIView {
     }
     
     private func commonInit(){
-        self.backgroundColor = isTesting ? .blue : .white
+        self.backgroundColor = isTesting ? .blue : backgroundWhiteColor
         let bar = UISearchBar.init(frame: CGRect.zero)
         bar.barTintColor = isTesting ? .black : veryLightGrayColor
         bar.backgroundColor = bar.barTintColor
@@ -44,10 +44,10 @@ class SearchView: UIView {
     
     public func setConstr(constraints set: SearchViewConstraints) {
         self.constr = set
-        self.layoutSubviews()
+        self.prepareConstraints()
     }
     
-    override func layoutSubviews() {
+    private func prepareConstraints() {
         var makeConstraints: [NSLayoutConstraint] = []
         self.constr.searchBarConstraints.outConstraints()
             .forEach{ (attribute, typeOfView, value) in

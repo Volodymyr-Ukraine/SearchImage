@@ -34,7 +34,7 @@ class ImagesView: UIView {
         self.addSubview(table)
         self.tableView = table
         self.tableView?.translatesAutoresizingMaskIntoConstraints = false
-        self.tableView?.backgroundColor = isTesting ? .red : .white
+        self.tableView?.backgroundColor = isTesting ? .red : backgroundWhiteColor
     }
     
     // MARK: -
@@ -42,10 +42,10 @@ class ImagesView: UIView {
     
     public func setConstr(constraints set: ImagesViewConstraints) {
         self.constr = set
-        self.layoutSubviews()
+        self.prepareConstraints()
     }
     
-    override func layoutSubviews() {
+    private func prepareConstraints() {
         var makeConstraints: [NSLayoutConstraint] = []
         self.constr.tableConstraints.outConstraints()
             .forEach{ (attribute, typeOfView, value) in

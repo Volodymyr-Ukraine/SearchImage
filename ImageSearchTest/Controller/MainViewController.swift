@@ -12,7 +12,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private let cellID = "images"
     private var imageForTest: UIImage? = nil
-    //private let searchController = UISearchController(searchResultsController: nil)
+    
+    override var supportedInterfaceOrientations : UIInterfaceOrientationMask {
+        get {
+            return UIInterfaceOrientationMask.all
+        }
+    }
+    
     // MARK: -
     // MARK: Properties
 
@@ -20,40 +26,26 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     private var constr: MainViewConstraints = MainViewConstraints()
     private var model: MainModel = MainModel()
     
+    // MARK: -
+    // MARK: Init and Preparing
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let view = MainView()
         self.mainView = view
         self.view = view
-        view.paint(color: isTesting ? .green : .white)
+        view.paint(color: isTesting ? .green : backgroundWhiteColor)
         view.setConstr(constraints: self.constr)
-        self.mainView?.bottomView?.tableView?.delegate = self
-        self.mainView?.bottomView?.tableView?.dataSource = self
-        self.mainView?.bottomView?.tableView?.register(ImageTableViewCell.self, forCellReuseIdentifier: self.cellID)
-        self.mainView?.bottomView?.tableView?.allowsSelection = true
-        
+        let table = self.mainView?.bottomView?.tableView
+        table?.delegate = self
+        table?.dataSource = self
+        table?.register(ImageTableViewCell.self, forCellReuseIdentifier: self.cellID)
+        table?.allowsSelection = true
         self.model.toDoIfDataChanges = {
-            self.model.data = self.model.data.filter{ data in
-                return (data.image != nil) 
-            }
-           // self.model.data.append(contentsOf: self.model.data)
-            //self.mainView?.bottomView?.tableView?.setNeedsLayout()
-            //self.mainView?.bottomView?.tableView?.layoutIfNeeded()
-            
-          //  UIView.setAnimationsEnabled(false)
-          //  self.mainView?.bottomView?.tableView?.beginUpdates()
             self.mainView?.bottomView?.tableView?.reloadData()
-           // self.mainView?.bottomView?.tableView?.endUpdates()
-          //  UIView.setAnimationsEnabled(true)
-           
-            
         }
         self.mainView?.upperView?.searchBar?.delegate = self
         self.hideKeyboardWhenTappedAround()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        self.mainView?.layoutSubviews()
     }
 
     // MARK: -
@@ -82,20 +74,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: self.cellID, for: indexPath) as? ImageTableViewCell) ?? ImageTableViewCell()
-        let info = self.model.data.reversed()[indexPath.row]//.suffix(from: indexPath.row).first
-        cell.setData(text: info.name, image: info.image)
-        /*cell.setData(text: "There is no images", image: data)
-        if let url = URL(string: "https://images.unsplash.com/photo-1541093113199-a2e9d84e903f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&fit=max&ixid=eyJhcHBfaWQiOjkyNTc5fQ") {
-            downloadImage(from: url){ (data) in
-                //self.searchImage?.image = UIImage(data: data)
-                // self.layoutSubviews()
-                
-                
-            }
+        if let info = self.model.data.reversed().suffix(from: indexPath.row).first {
+            cell.setData(text: info.name, image: info.image)
         }
-        // */
-        
-        //cell.searchImage = UIImageView(image: self.imageForTest)
         cell.setConstr(constraints: constr.imageTableViewCellConstraints)
         return cell
     }
@@ -103,11 +84,5 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return constr.imageTableViewCellConstraints.cellHeight
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        return
-    }
-    
-
 }
 

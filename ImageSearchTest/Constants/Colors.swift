@@ -8,4 +8,5 @@
 
 import UIKit
 
-public let veryLightGrayColor: UIColor = UIColor(displayP3Red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+public let veryLightGrayColor: UIColor = UIColor(red: 0.9, green: 0.95, blue: 1, alpha: 1.0)
+public let backgroundWhiteColor: UIColor = UIColor(red: 0.9, green: 1, blue: 0.9, alpha: 1)

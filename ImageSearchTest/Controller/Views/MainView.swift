@@ -9,6 +9,8 @@
 import UIKit
 
 class MainView: UIView {
+    
+    
     // MARK: -
     // MARK: Properties
     
@@ -30,19 +32,17 @@ class MainView: UIView {
     }
     
     private func commonInit() {
-        //self.frame = UIScreen.main.bounds
-        let searchFrame: CGRect = .zero
-        let search = SearchView(frame: searchFrame)
-        search.translatesAutoresizingMaskIntoConstraints = false
+        let search = SearchView(frame: .zero)
+        let images = ImagesView(frame: .zero)
+        [search, images].forEach{ (element) in
+            element.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview(element)
+        }
         self.upperView = search
         search.setConstr(constraints: self.constr.searchViewConstraints)
-        self.addSubview(search)
         
-        let images = ImagesView(frame: searchFrame)
-        images.translatesAutoresizingMaskIntoConstraints = false
         self.bottomView = images
         images.setConstr(constraints: self.constr.imagesViewConstraints)
-        self.addSubview(images)
     }
     
     // MARK: -
@@ -52,14 +52,14 @@ class MainView: UIView {
         self.constr = set
         self.upperView?.setConstr(constraints: set.searchViewConstraints)
         self.bottomView?.setConstr(constraints: set.imagesViewConstraints)
-        self.layoutSubviews()
+        self.prepareConstraints()
     }
     
     public func paint(color: UIColor) {
         self.backgroundColor = color
     }
     
-    override func layoutSubviews() {
+    public func prepareConstraints() {
         var makeConstraints: [NSLayoutConstraint] = []
         self.constr.upperViewConstraints.outConstraints()
         .forEach{ (attribute, typeOfView, value) in
