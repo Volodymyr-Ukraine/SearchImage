@@ -32,6 +32,8 @@
 		F5ECD3722336AA9C00DAD205 /* InputJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ECD3712336AA9C00DAD205 /* InputJSON.swift */; };
 		F5ECD374233774E600DAD205 /* JSON_Sample.json in Sources */ = {isa = PBXBuildFile; fileRef = F5ECD373233774E600DAD205 /* JSON_Sample.json */; };
 		F5ECD3762337A33300DAD205 /* TableCellsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ECD3752337A33300DAD205 /* TableCellsData.swift */; };
+		F5ECD37C2337EC3A00DAD205 /* RealmClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ECD37B2337EC3A00DAD205 /* RealmClass.swift */; };
+		F5ECD37E2337FF0800DAD205 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5ECD37D2337FF0800DAD205 /* Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		F5ECD3712336AA9C00DAD205 /* InputJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputJSON.swift; sourceTree = "<group>"; };
 		F5ECD373233774E600DAD205 /* JSON_Sample.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = JSON_Sample.json; sourceTree = "<group>"; };
 		F5ECD3752337A33300DAD205 /* TableCellsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellsData.swift; sourceTree = "<group>"; };
+		F5ECD37B2337EC3A00DAD205 /* RealmClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmClass.swift; sourceTree = "<group>"; };
+		F5ECD37D2337FF0800DAD205 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 				F517EC18233620410069604D /* PrepareConstraints.swift */,
 				F517EC1C2336233B0069604D /* ViewTypeEnum.swift */,
 				F5ECD359233628AF00DAD205 /* Constants.swift */,
+				F5ECD37D2337FF0800DAD205 /* Functions.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -165,8 +170,8 @@
 		F5ECD3672336893F00DAD205 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F517EC1E233627090069604D /* Views */,
 				F5ECD3682336895300DAD205 /* Models */,
+				F517EC1E233627090069604D /* Views */,
 				F517EC01233547410069604D /* MainViewController.swift */,
 			);
 			path = Controller;
@@ -177,6 +182,7 @@
 			children = (
 				F5ECD369233689CB00DAD205 /* MainModel.swift */,
 				F5ECD3752337A33300DAD205 /* TableCellsData.swift */,
+				F5ECD37B2337EC3A00DAD205 /* RealmClass.swift */,
 				F5ECD3712336AA9C00DAD205 /* InputJSON.swift */,
 				F5ECD36F2336A51C00DAD205 /* UnsplashPhoto.swift */,
 				F5ECD373233774E600DAD205 /* JSON_Sample.json */,
@@ -317,8 +323,10 @@
 				F517EC1723361F3F0069604D /* Strings.swift in Sources */,
 				F5ECD36C2336911300DAD205 /* DataRequest.swift in Sources */,
 				F5ECD358233627EA00DAD205 /* SearchViewConstraints.swift in Sources */,
+				F5ECD37C2337EC3A00DAD205 /* RealmClass.swift in Sources */,
 				F5ECD35A233628AF00DAD205 /* Constants.swift in Sources */,
 				F5ECD3622336406300DAD205 /* ImageTableViewCell.swift in Sources */,
+				F5ECD37E2337FF0800DAD205 /* Functions.swift in Sources */,
 				F5ECD374233774E600DAD205 /* JSON_Sample.json in Sources */,
 				F5ECD3702336A51C00DAD205 /* UnsplashPhoto.swift in Sources */,
 				F517EC122335F8F40069604D /* MainView.swift in Sources */,

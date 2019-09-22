@@ -110,8 +110,8 @@ class ImageTableViewCell: UITableViewCell {
         self.addConstraints(makeConstraints)
     }
     
-    /*override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    override func setSelected(_ selected: Bool, animated: Bool) {
+       // super.setSelected(selected, animated: animated)
     } // */
 
 }

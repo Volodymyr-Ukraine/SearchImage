@@ -6,15 +6,27 @@
 //  Copyright © 2019 Volodymyr. All rights reserved.
 //
 
-import UIKit
+import RealmSwift
 
 class MainModel {
+    
     public var data: [TableCellsData] = []
     public var toDoIfDataChanges: (()->())?
     
+    
     private var readedData: InputJSON? = nil
     init() {
-        self.readURL(search: "flower")
+        //self.readURL(search: "flower")
+        do {
+        let realm = try Realm()
+            let text = realm.objects(RealmClass.self)
+            text.forEach{ (store) in
+                let image = UIImage(data: store.file ?? Data(count: 0))
+            self.data.append(TableCellsData(name: store.text, image: image))
+            }
+        } catch let error {
+            print("some error with Realm")
+        }
     }
     
     public func readURL(search: String) {
@@ -22,7 +34,7 @@ class MainModel {
         postData.append("&query=\(search)".data(using: String.Encoding.utf8)!)
         
         let request = NSMutableURLRequest(url: NSURL(string:
-            "https://api.unsplash.com/search/photos?client_id=a62b141714259e5c3c95d1ecb72a1c7bc162d3a8d03f48d29d3ee3e88526ba21&page=1&query=\(search)&per_page=1"
+            "https://api.unsplash.com/search/photos?client_id=a62b141714259e5c3c95d1ecb72a1c7bc162d3a8d03f48d29d3ee3e88526ba21&page=1&query=\(prepareForRequest(string: search))&per_page=1"
             )! as URL,
             cachePolicy: .useProtocolCachePolicy,
             timeoutInterval: 10.0)
@@ -48,6 +60,17 @@ class MainModel {
                         return
                     }
                     this.downloadImage(from: url){ (rawImage) in
+                        do {
+                            let realm = try Realm()
+                            try realm.write {
+                                let saveData = RealmClass()
+                                saveData.prepare(search: search, rawImage: rawImage)
+                                realm.add(saveData)
+                            }
+                        } catch let error {
+                            print("some error with Realm \(error)")
+                        }
+                        
                         let image = UIImage(data: rawImage)
                         this.data.append(TableCellsData(name: search, image: image))
                         this.toDoIfDataChanges?()
@@ -95,6 +118,7 @@ class MainModel {
             }
         do {
             try data.write(to: directory.appendingPathComponent("\(name).png")!)
+            
                 return true
         } catch {
             print(error.localizedDescription)

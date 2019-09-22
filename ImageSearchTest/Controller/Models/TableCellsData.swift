@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TableCellsData {
+struct TableCellsData{
     public let name: String
     public let image: UIImage?
 }
