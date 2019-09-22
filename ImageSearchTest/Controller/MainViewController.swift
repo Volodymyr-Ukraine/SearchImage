@@ -61,8 +61,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = (tableView.dequeueReusableCell(withIdentifier: self.cellID, for: indexPath) as? ImageTableViewCell) ?? ImageTableViewCell()
-        let info = self.model.data.suffix(from: indexPath.row).first
-        cell.setData(text: info?.name ?? " ", image: info?.image)
+        let info = self.model.data[indexPath.row]//.suffix(from: indexPath.row).first
+        cell.setData(text: info.name, image: info.image)
         /*cell.setData(text: "There is no images", image: data)
         if let url = URL(string: "https://images.unsplash.com/photo-1541093113199-a2e9d84e903f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=100&fit=max&ixid=eyJhcHBfaWQiOjkyNTc5fQ") {
             downloadImage(from: url){ (data) in

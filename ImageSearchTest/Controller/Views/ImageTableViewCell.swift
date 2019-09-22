@@ -71,12 +71,13 @@ class ImageTableViewCell: UITableViewCell {
     
     public func setConstr(constraints set: ImageTableViewCellConstraints) {
         self.constr = set
+        self.remakeConstraints()
        // self.layoutSubviews()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.setAutoConstraints()
+        //self.setAutoConstraints()
         //self.remakeConstraints()
     }
     
