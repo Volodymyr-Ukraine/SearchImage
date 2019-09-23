@@ -9,9 +9,16 @@
 import UIKit
 
 struct PrepareConstraints {
-    let atributes: [NSLayoutConstraint.Attribute]
-    let views: [ViewTypeEnum]
-    let offsets: [CGFloat]
+    
+    // MARK: -
+    // MARK: Properties
+    
+    public let atributes: [NSLayoutConstraint.Attribute]
+    public let views: [ViewTypeEnum]
+    public let offsets: [CGFloat]
+    
+    // MARK: -
+    // MARK: Methods
     
     public func outConstraints() -> [(NSLayoutConstraint.Attribute, ViewTypeEnum, CGFloat)] {
         var outArray: [(NSLayoutConstraint.Attribute, ViewTypeEnum, CGFloat)] = []

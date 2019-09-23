@@ -30,7 +30,6 @@ class ImageTableViewCellConstraints {
             views:     [.main, .main,  .main,   .main],
             offsets:   [10,    -10,     -10,      10 ])
 
-    
         self.textConstraints = PrepareConstraints(
             atributes: [.left, .centerY ],
             views:     [.main, .main],

@@ -44,12 +44,13 @@ class ImageTableViewCell: UITableViewCell {
         
         [image, label].forEach{ input in
                 input.translatesAutoresizingMaskIntoConstraints = false
-                input.backgroundColor = isTesting ? .yellow : .white
+                input.backgroundColor = isTesting ? .yellow : backgroundWhiteColor
                 self.addSubview(input)
         }
         self.searchImage = image
         self.searchLabel = label
         label.text = "Hello"
+        self.backgroundColor = isTesting ? UIColor.cyan : backgroundWhiteColor
     }
 
     // MARK: -
@@ -58,26 +59,11 @@ class ImageTableViewCell: UITableViewCell {
     public func setData(text: String, image: UIImage?) {
         self.searchLabel?.text = text
         self.searchImage?.image = image
-        /*let image = UIImage(data: rawImage)
-        let imageView = UIImageView(image: image)
-        //self.searchImage = nil
-        self.searchImage = imageView
-        self.searchImage?.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(imageView)
-        self.layoutSubviews()
-        //self.searchImage?.image = UIImage(contentsOfFile: imageName)
-         // */
     }
     
     public func setConstr(constraints set: ImageTableViewCellConstraints) {
         self.constr = set
-       // self.layoutSubviews()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.setAutoConstraints()
-        //self.remakeConstraints()
+        self.prepareConstraints()
     }
     
     private func setAutoConstraints() {
@@ -91,7 +77,7 @@ class ImageTableViewCell: UITableViewCell {
         self.searchLabel?.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
     }
     
-    private func remakeConstraints() {
+    private func prepareConstraints() {
         var makeConstraints: [NSLayoutConstraint] = []
         
         zip([self.constr.imageConstraints.outConstraints(), self.constr.textConstraints.outConstraints()],
@@ -109,8 +95,8 @@ class ImageTableViewCell: UITableViewCell {
         self.addConstraints(makeConstraints)
     }
     
-    /*override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    } // */
+    override func setSelected(_ selected: Bool, animated: Bool) {
+       // super.setSelected(selected, animated: animated)
+    }
 
 }
