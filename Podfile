@@ -7,6 +7,6 @@ target 'ImageSearchTest' do
 
   # Pods for ImageSearchTest
 
-    pod 'RealmSwift'
+    pod 'RealmSwift', '~> 3.20.0'
     
 end

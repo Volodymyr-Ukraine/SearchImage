@@ -42,8 +42,7 @@ class SearchView: UIView {
     // MARK: -
     // MARK: Methods
     
-    public func setConstr(constraints set: SearchViewConstraints) {
-        self.constr = set
+    public func setConstr(){
         self.prepareConstraints()
     }
     

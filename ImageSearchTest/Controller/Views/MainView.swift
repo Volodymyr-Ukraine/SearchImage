@@ -39,19 +39,15 @@ class MainView: UIView {
             self.addSubview(element)
         }
         self.upperView = search
-        search.setConstr(constraints: self.constr.searchViewConstraints)
-        
         self.bottomView = images
-        images.setConstr(constraints: self.constr.imagesViewConstraints)
     }
     
     // MARK: -
     // MARK: Methods
     
-    public func setConstr(constraints set: MainViewConstraints) {
-        self.constr = set
-        self.upperView?.setConstr(constraints: set.searchViewConstraints)
-        self.bottomView?.setConstr(constraints: set.imagesViewConstraints)
+    public func setConstr(){
+        self.upperView?.setConstr()
+        self.bottomView?.setConstr()
         self.prepareConstraints()
     }
     

@@ -23,7 +23,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: Properties
 
     private var mainView: MainView? = nil
-    private var constr: MainViewConstraints = MainViewConstraints()
+    private var constr: ImageTableViewCellConstraints = ImageTableViewCellConstraints()//MainViewConstraints = MainViewConstraints()
     private var model: MainModel = MainModel()
     
     // MARK: -
@@ -35,7 +35,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.mainView = view
         self.view = view
         view.paint(color: isTesting ? .green : backgroundWhiteColor)
-        view.setConstr(constraints: self.constr)
+        view.setConstr()//constraints: self.constr)
         let table = self.mainView?.bottomView?.tableView
         table?.delegate = self
         table?.dataSource = self
@@ -77,12 +77,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         if let info = self.model.data.reversed().suffix(from: indexPath.row).first {
             cell.setData(text: info.name, image: info.image)
         }
-        cell.setConstr(constraints: constr.imageTableViewCellConstraints)
+        cell.setConstr()//constraints: constr.imageTableViewCellConstraints)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return constr.imageTableViewCellConstraints.cellHeight
+        return constr.cellHeight//imageTableViewCellConstraints.cellHeight
     }
 }
 

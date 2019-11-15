@@ -13,6 +13,7 @@ class ImageTableViewCell: UITableViewCell {
     override var reuseIdentifier: String? {
         return "images"
     }
+    
     // MARK: -
     // MARK: Properties
     
@@ -61,20 +62,8 @@ class ImageTableViewCell: UITableViewCell {
         self.searchImage?.image = image
     }
     
-    public func setConstr(constraints set: ImageTableViewCellConstraints) {
-        self.constr = set
+    public func setConstr(){
         self.prepareConstraints()
-    }
-    
-    private func setAutoConstraints() {
-        self.removeConstraints(self.constraints)
-        self.searchImage?.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -10).isActive = true
-        self.searchImage?.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
-        self.searchImage?.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        self.searchImage?.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        self.searchLabel?.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 10).isActive = true
-        self.searchLabel?.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
     }
     
     private func prepareConstraints() {
