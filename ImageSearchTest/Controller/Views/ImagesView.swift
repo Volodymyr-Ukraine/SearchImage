@@ -40,8 +40,7 @@ class ImagesView: UIView {
     // MARK: -
     // MARK: Methods
     
-    public func setConstr(){//constraints set: ImagesViewConstraints) {
-//        self.constr = set
+    public func setConstr(){
         self.prepareConstraints()
     }
     

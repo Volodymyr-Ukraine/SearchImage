@@ -14,9 +14,6 @@ class MainViewConstraints {
     // MARK: Properties
     
     public var upperViewConstraints: PrepareConstraints
-//    public var searchViewConstraints: SearchViewConstraints = SearchViewConstraints()
-//    public var imagesViewConstraints: ImagesViewConstraints = ImagesViewConstraints()
-//    public var imageTableViewCellConstraints: ImageTableViewCellConstraints = ImageTableViewCellConstraints()
     public var lowerViewConstraints: PrepareConstraints
     
     // MARK: -
