@@ -21,6 +21,10 @@ class MainModel {
     // MARK: Init
     
     init() {
+        self.loadCashedData()
+    }
+    
+    private func loadCashedData(){
         do {
             let realm = try Realm()
             let text = realm.objects(RealmClass.self)

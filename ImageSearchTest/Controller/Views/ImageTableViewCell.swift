@@ -62,8 +62,8 @@ class ImageTableViewCell: UITableViewCell {
         self.searchImage?.image = image
     }
     
-    public func setConstr(constraints set: ImageTableViewCellConstraints) {
-        self.constr = set
+    public func setConstr(){ //constraints set: ImageTableViewCellConstraints) {
+//        self.constr = set
         self.prepareConstraints()
     }
     

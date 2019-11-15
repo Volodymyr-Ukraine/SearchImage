@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -93,6 +93,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F5057334237E6CC6000FC4FB /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				F5ECD3712336AA9C00DAD205 /* InputJSON.swift */,
+				F5ECD36F2336A51C00DAD205 /* UnsplashPhoto.swift */,
+				F5ECD3752337A33300DAD205 /* TableCellsData.swift */,
+				F5ECD37F23380E4F00DAD205 /* RequestParameters.swift */,
+			);
+			path = Structures;
+			sourceTree = "<group>";
+		};
 		F517EBF3233547400069604D = {
 			isa = PBXGroup;
 			children = (
@@ -173,11 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				F5ECD369233689CB00DAD205 /* MainModel.swift */,
-				F5ECD37F23380E4F00DAD205 /* RequestParameters.swift */,
-				F5ECD3752337A33300DAD205 /* TableCellsData.swift */,
+				F5057334237E6CC6000FC4FB /* Structures */,
 				F5ECD37B2337EC3A00DAD205 /* RealmClass.swift */,
-				F5ECD3712336AA9C00DAD205 /* InputJSON.swift */,
-				F5ECD36F2336A51C00DAD205 /* UnsplashPhoto.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
